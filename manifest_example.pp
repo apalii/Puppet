@@ -2,7 +2,7 @@ class linux {
 
     $admintools = ['git', 'nano', 'screen']
 
-    package {
+    package { $admintools:
         ensure => 'installed ',
     }
 
@@ -12,9 +12,9 @@ class linux {
         default => 'ntp',
     }
 
-    file { '/info.text'
+    file { '/info.text':
         ensure  => 'present',
-        content => inline_template("Created by me at <%= Time.now %>\n")
+        content => inline_template("Created by me at <%= Time.now %>\n"),
     }
 
     package { 'ntp':
