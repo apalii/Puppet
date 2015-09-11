@@ -1,5 +1,5 @@
 class linux {
-
+    
     $admintools = ['git', 'nano', 'screen']
 
     package { $admintools:
@@ -19,6 +19,10 @@ class linux {
 
     package { 'ntp':
         ensure => 'installed',
+    }
+    
+    package { 'vim':
+        ensure => 'absent',
     }
     
     service { $ntpservice:
